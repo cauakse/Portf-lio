@@ -17,7 +17,7 @@ export default function Home() {
     const handleScroll = () => {
       const scrollTop = window.scrollY; 
       const maxScroll = (document.documentElement.scrollHeight - window.innerHeight)/2; 
-      const newBrightness = 1 - Math.min(scrollTop / maxScroll, 1) * 0.97;
+      const newBrightness = 1 - Math.min(scrollTop / maxScroll, 1) * 0.965;
 
       setBrightness(newBrightness);
     };
