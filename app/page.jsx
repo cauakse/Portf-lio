@@ -59,7 +59,7 @@ export default function Home() {
       <div className={style.secondSection}>
           <div className={style.meDiv} data-aos="flip-left" data-aos-duration="700">
             <h1 className={style.meTittle}>
-              Hello. I'm Cauã,
+              Hello. I m Cauã,
             </h1>
             <h1 className={style.meText}>
             I use my passion and skills to develop innovative digital products and immersive experiences. My expertise spans from design and implementation to effective project management, supporting both national and international clients. As a researcher and creator, I collaborate with companies, startups, and educational institutions to bring cutting-edge technology solutions to life. With a focus on virtual reality and minimalist design, I aim to merge functionality with artistic inspiration, always pushing the boundaries of digital experiences.
