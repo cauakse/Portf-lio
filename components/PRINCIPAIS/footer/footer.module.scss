@@ -1,0 +1,65 @@
+@import "../../../app/styles/colors";
+.container{ 
+    max-width: 100vw;
+    min-height: 30vh;
+    max-height: 50vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    li{
+        list-style-type: none;
+        align-items: center;
+        gap: 0.5rem;
+        flex-direction: row;
+        font-family: Oxanium,Arial, Helvetica, sans-serif;
+        font-size: 0.7rem ;
+    }
+}
+
+.LinkI{
+    display: flex;
+    text-decoration: none;
+    flex-direction: row;
+    align-items: center;
+    h1{
+        padding-top: 1rem;
+    }
+}
+
+.iconsSection{
+    padding: 2rem;
+    padding-left: 8rem;
+}
+
+.home{
+    margin-right: 9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.aboutLink{
+    text-decoration: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: x-large;
+    color: white;
+    background-color: transparent;
+    border-radius: 1rem;
+    transition: 0.4s;
+    &:hover{
+        background-color: rgba($color: #ffffff, $alpha: 0.8);
+        color: black;
+    }
+}
+
+.rights{
+    font-size: 600;
+    text-align: center;
+}
