@@ -4,6 +4,8 @@ import Header from "@/components/PRINCIPAIS/header/header";
 import style from './page.module.scss'
 import arrow from '../public/arrowDown.gif'
 import Image from "next/image";
+import profile from '../public/profile.png'
+
 import { useEffect, useState } from "react";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -14,8 +16,8 @@ export default function Home() {
     Aos.init();
     const handleScroll = () => {
       const scrollTop = window.scrollY; 
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight; 
-      const newBrightness = 1 - Math.min(scrollTop / maxScroll, 1) * 1.4;
+      const maxScroll = (document.documentElement.scrollHeight - window.innerHeight)/2; 
+      const newBrightness = 1 - Math.min(scrollTop / maxScroll, 1) * 0.97;
 
       setBrightness(newBrightness);
     };
@@ -36,7 +38,7 @@ export default function Home() {
       <div className={style.container} 
       style={{
         filter: `brightness(${brightness})`,
-        }}>
+        }} id="init">
         <div className={style.content}>
           <div className={style.main}>
             <div className={style.devSection} data-aos="fade-up" data-aos-duration="1000">
@@ -55,7 +57,17 @@ export default function Home() {
       </div>
 
       <div className={style.secondSection}>
-
+          <div className={style.meDiv} data-aos="flip-left" data-aos-duration="700">
+            <h1 className={style.meTittle}>
+              Hello. I'm Cauã,
+            </h1>
+            <h1 className={style.meText}>
+            I use my passion and skills to develop innovative digital products and immersive experiences. My expertise spans from design and implementation to effective project management, supporting both national and international clients. As a researcher and creator, I collaborate with companies, startups, and educational institutions to bring cutting-edge technology solutions to life. With a focus on virtual reality and minimalist design, I aim to merge functionality with artistic inspiration, always pushing the boundaries of digital experiences.
+            </h1>
+          </div>
+          <div className={style.secondImage} data-aos="flip-up" data-aos-duration="500">
+            <Image className={style.secondImage}  src={profile} alt="Profile picture"></Image>
+          </div>
       </div>
     </div>
   );

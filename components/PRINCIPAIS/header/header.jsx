@@ -32,7 +32,7 @@ export default function Header() {
                <Link href='/'><Image src={Logotipo} className={style.logo} alt='KseLogo'></Image></Link>
                <Link href="/projects" className={style.Link}>Projects</Link>
                <Link href="/about" className={style.Link}>About</Link>
-               <Link href="#contact" className={style.Link}>Contact</Link>
+               <Link href="/contact" className={style.Link}>Contact</Link>
                <div className={style.icons}>
 
                   <Link href="https://www.instagram.com/caua_kse/" target="_blank" className={style.LinkI}>
