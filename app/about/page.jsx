@@ -56,12 +56,15 @@ export default function Page() {
 
     Aos.init();
     function download (){
+        if(typeof(window) != 'undefined'){
         const link = document.createElement('a');
         link.href = '/CauaPereiraLinkedin.pdf';
         link.download = "CurriculoCauaPereira.pdf"
         document.body.appendChild(link)
         link.click();
         document.body.removeChild(link);
+        }
+
         
     }
 
