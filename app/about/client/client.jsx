@@ -53,6 +53,9 @@ import 'aos/dist/aos.css';
 
 export default function ClientOnlyComponent() {
 
+    if(typeof(window) == 'undefined')
+        return null;
+
     Aos.init();
 
     const propsL = {
@@ -96,7 +99,7 @@ export default function ClientOnlyComponent() {
     return (
         <>
         <div className={style.container}>
-            <Header turnBlack='false'></Header>
+            <Header turnBlack='false' follow='false'></Header>
             <div className={style.mainContainer} id='init'>
                 <div className={style.myImage} data-aos="fade-right" data-aos-duration="1000" >
                     <Image src={profile} alt='Profile Picture' className={style.profileImage} />
@@ -149,6 +152,9 @@ export default function ClientOnlyComponent() {
                     <Stack tittle="Data-Base" {...propsB}></Stack>
                 </div>
                 <Stack tittle="Diversity" {...propsD}></Stack>
+            </div>
+            <div className={style.textMe}>
+                
             </div>
             <Footer link1="projects" link2="contact"></Footer>
         </div>

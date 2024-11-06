@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Logotipo from '../../../public/creative.png'
 
 import { useState, useEffect } from 'react';
-export default function Header({turnBlack}) {
+export default function Header({turnBlack,follow}) {
    const [isScrolled, setIsScrolled] = useState(false);
 
    useEffect(() => {
@@ -32,6 +32,11 @@ export default function Header({turnBlack}) {
    }, []);
 
 
+   if(follow==='false'){
+      follow=false;
+   }
+   if(follow==='true')
+      follow=true;
    
    if(turnBlack==='false'){
       turnBlack=false;
@@ -40,11 +45,11 @@ export default function Header({turnBlack}) {
       turnBlack=true;
       }
    
-   const navClass = turnBlack ? style.fixedContainer : style.relativeContainer;
+   const navClass = follow ? style.fixedContainer : style.relativeContainer;
 
    return (
       <>
-         <nav className={navClass} style={{ backgroundColor: isScrolled ? 'black' : 'transparent'}}>
+         <nav className={navClass} style={turnBlack ? { backgroundColor: isScrolled ? 'black' : 'transparent'} : {}}>
             <div className={style.flex}>
                <Link href='/'><Image src={Logotipo} className={style.logo} alt='KseLogo'></Image></Link>
                <Link href="/projects" className={turnBlack ? style.Link : style.LinkW}>Projects</Link>

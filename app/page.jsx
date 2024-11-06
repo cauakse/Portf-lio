@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
     <div className={style.supa}>
-      <Header turnBlack='true'></Header>
+      <Header turnBlack='true' follow='true'></Header>
       <div className={style.container} 
       style={{
         filter: `brightness(${brightness})`,
