@@ -55,18 +55,6 @@ import 'aos/dist/aos.css';
 export default function Page() {
 
     Aos.init();
-    function download (){
-        if(typeof(window) != 'undefined'){
-        const link = document.createElement('a');
-        link.href = '/CauaPereiraLinkedin.pdf';
-        link.download = "CurriculoCauaPereira.pdf"
-        document.body.appendChild(link)
-        link.click();
-        document.body.removeChild(link);
-        }
-
-        
-    }
 
     const propsL = {
         prop1: { img: <Image src={js} alt='Language Picture'></Image>, texto: "C" },
@@ -117,11 +105,9 @@ export default function Page() {
                     <h1 className={style.aboutText}data-aos="fade-left" data-aos-duration="1000" >
                         Hi, my name is Cauã Pereira Domingues. I am a Computer Science student and scientific researcher at Unoeste in Brazil. I live in Presidente Prudente and have experience in full-stack application development. Below, you’ll find some a bit more about me. Enjoy!
                     </h1>
-                    <div className={style.downloadButton} data-aos="flip-right" data-aos-duration="1000" onClick={()=>{
-                        download();
-                    }}>
-                        Click Here to Dowload my CV
-                    </div>
+                    <a href="/CauaPereiraLinkedin.pdf" download="CurriculoCauaPereira.pdf" className={style.downloadButton}>Click Here to Dowload my CV</a>
+                        
+                    
                 </div>
             </div>
             <div className={style.caroussel}>
