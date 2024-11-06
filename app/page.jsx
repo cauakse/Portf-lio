@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <div className={style.supa}>
-      <Header></Header>
+      <Header turnBlack='true'></Header>
       <div className={style.container} 
       style={{
         filter: `brightness(${brightness})`,
@@ -58,7 +58,7 @@ export default function Home() {
       </div>
 
       <div className={style.secondSection}>
-          <div className={style.meDiv} data-aos="flip-left" data-aos-duration="700">
+          <div className={style.meDiv} data-aos="fade-left" data-aos-duration="700">
             <h1 className={style.meTittle}>
               Hello. I am Cauã,
             </h1>
@@ -70,7 +70,7 @@ export default function Home() {
             <Image src={profile} className={style.imageS} alt="Profile Picture"></Image>
           </div>
       </div>
-      <Footer></Footer>
+      <Footer link1="about" link2="contact"></Footer>
     </div>
   );
 }

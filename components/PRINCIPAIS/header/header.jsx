@@ -4,35 +4,51 @@ import Link from 'next/link';
 import Logotipo from '../../../public/creative.png'
 
 import { useState, useEffect } from 'react';
-export default function Header() {
+export default function Header({turnBlack}) {
    const [isScrolled, setIsScrolled] = useState(false);
 
    useEffect(() => {
-     const handleScroll = () => {
 
-       if (window.scrollY > window.innerHeight*0.8) {
-         setIsScrolled(true);
-       } else {
-         setIsScrolled(false);
-       }
-     };
- 
-     // Adiciona o listener do evento de scroll
-     window.addEventListener('scroll', handleScroll);
- 
-     // Remove o listener quando o componente for desmontado
-     return () => {
-       window.removeEventListener('scroll', handleScroll);
-     };
+      if (turnBlack) {
+         const handleScroll = () => {
+
+            if (window.scrollY > window.innerHeight * 0.8) {
+               setIsScrolled(true);
+            } else {
+               setIsScrolled(false);
+            }
+         };
+
+         // Adiciona o listener do evento de scroll
+         window.addEventListener('scroll', handleScroll);
+
+         // Remove o listener quando o componente for desmontado
+         return () => {
+            window.removeEventListener('scroll', handleScroll);
+         };
+      }
+
    }, []);
+
+
+   
+   if(turnBlack==='false'){
+      turnBlack=false;
+   }
+   if(turnBlack==='true'){
+      turnBlack=true;
+      }
+   
+   const navClass = turnBlack ? style.fixedContainer : style.relativeContainer;
+
    return (
       <>
-         <nav className={style.container} style={{ backgroundColor: isScrolled ? 'black' : 'transparent' }}>
+         <nav className={navClass} style={{ backgroundColor: isScrolled ? 'black' : 'transparent'}}>
             <div className={style.flex}>
                <Link href='/'><Image src={Logotipo} className={style.logo} alt='KseLogo'></Image></Link>
-               <Link href="/projects" className={style.Link}>Projects</Link>
-               <Link href="/about" className={style.Link}>About</Link>
-               <Link href="/contact" className={style.Link}>Contact</Link>
+               <Link href="/projects" className={turnBlack ? style.Link : style.LinkW}>Projects</Link>
+               <Link href="/about" className={turnBlack ? style.Link : style.LinkW}>About</Link>
+               <Link href="/contact" className={turnBlack ? style.Link : style.LinkW}>Contact</Link>
                <div className={style.icons}>
 
                   <Link href="https://www.instagram.com/caua_kse/" target="_blank" className={style.LinkI}>

@@ -1,7 +1,7 @@
 import style from './footer.module.scss'
 import Link from 'next/link'
 
-export default function Footer() {
+export default function Footer(props) {
     return (
         <footer>
             <div className={style.container}>
@@ -109,9 +109,9 @@ export default function Footer() {
                     <h1>All rights reserved &copy;</h1>
                 </div>
                 <div className={style.home}>
-                    <Link href="#init"className={style.aboutLink}>Home</Link>
-                    <Link href="/about"className={style.aboutLink}>About</Link>
-                    <Link href="/contact"className={style.aboutLink}>Contact</Link>
+                    <Link href="#init"className={style.aboutLink} style={{textTransform:'uppercase'}}>Home</Link>
+                    <Link href={"/"+ props.link1} className={style.aboutLink} style={{textTransform:'uppercase'}}>{props.link1}</Link>
+                    <Link href={"/" + props.link2} className={style.aboutLink} style={{textTransform:'uppercase'}}>{props.link2}</Link>
                 </div>
             </div>
         </footer>
