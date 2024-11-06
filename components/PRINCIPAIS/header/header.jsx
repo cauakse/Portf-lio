@@ -9,6 +9,7 @@ export default function Header({turnBlack}) {
 
    useEffect(() => {
 
+      if(typeof(window) != 'undefined' && typeof(document) != 'undefined')
       if (turnBlack) {
          const handleScroll = () => {
 
