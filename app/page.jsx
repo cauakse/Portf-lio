@@ -6,6 +6,7 @@ import arrow from '../public/arrowDown.gif'
 import Image from "next/image";
 import profile from '../public/magnus.gif'
 import Footer from "@/components/PRINCIPAIS/footer/footer";
+import dynamic from "next/dynamic";
 
 import { useEffect, useState } from "react";
 import Aos from 'aos';
@@ -31,9 +32,8 @@ export default function Home() {
   }, []);
 
 
-
-
   return (
+    <>
     <div className={style.supa}>
       <Header turnBlack='true'></Header>
       <div className={style.container} 
@@ -72,5 +72,6 @@ export default function Home() {
       </div>
       <Footer link1="about" link2="contact"></Footer>
     </div>
+    </>
   );
 }
