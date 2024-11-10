@@ -37,6 +37,9 @@
 .profileImage {
     border-radius: 50%;
     object-fit: cover;
+    max-width: 30vw;
+    max-height: 65svh;
+    object-position: bottom;
 }
 
 .aboutText {

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import style from './page.module.scss'
 import Header from '../../../components/PRINCIPAIS/header/header.jsx';
 import Footer from '../../../components/PRINCIPAIS/footer/footer.jsx';
-import profile from '../../../public/profileMantua.jpg';
+import profile from '../../../public/profileOld.jpg';
 import image1 from "../../../public/caroussel/item1-1.png"
 import image2 from "../../../public/caroussel/item1-2.png"
 import image3 from "../../../public/caroussel/item1-3.png"
