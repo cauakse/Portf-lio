@@ -155,7 +155,7 @@ export default function ClientOnlyComponent() {
             </div>
             <div className={style.textMe} >
                 <div className={style.meRight} data-aos="fade-right" data-aos-duration="2000">
-                    <h1>I'm Cauã Pereira, a Computer Science student and virtual reality researcher at Unoeste, based in Presidente Prudente, Brazil. With a solid foundation in programming languages like C, Python, Java, and JavaScript, I specialize in full-stack development using frameworks like Node.js and React.</h1>
+                    <h1>I&aposm Cauã Pereira, a Computer Science student and virtual reality researcher at Unoeste, based in Presidente Prudente, Brazil. With a solid foundation in programming languages like C, Python, Java, and JavaScript, I specialize in full-stack development using frameworks like Node.js and React.</h1>
                 </div>
                 <div className={style.meLeft} data-aos="fade-left" data-aos-duration="2000">
                     <h1>
