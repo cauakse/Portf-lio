@@ -39,7 +39,7 @@ export default function Page (){
         }}> 
             <div className={style.godText} data-aos="fade-down" data-aos-duration="1200">
                 <h1 className={`${style.textHoverEffect} ${animation ? style.animateOnce : style.whiteAfter}`}>
-                \"God the Father Creator, sit and witness the strength of Your creation.\"</h1>
+                &quot;God the Father Creator, sit and witness the strength of Your creation.&quot;</h1>
             </div>
             <div className={style.downText} data-aos="fade-up" data-aos-duration="1200">
                 <h1 className={`${style.textHoverEffect} ${animation ? style.animateOnce : style.whiteAfter}`}>
