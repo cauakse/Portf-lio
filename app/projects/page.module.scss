@@ -1,0 +1,82 @@
+@import "../styles/colors";
+
+
+
+.main{
+    min-height: 100vh;
+    background-image: url("../../public/background-Projects.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.main2{
+    min-height: 100vh;
+}
+
+.godText{
+    max-width: 80vw;
+    transition: 2s;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    &:hover{
+        transition: 1s !important;
+        background-color: rgba($color: $blue, $alpha: 0.4);
+    }
+    h1{
+        font-family: Oxanium,Arial, Helvetica, sans-serif;
+    }
+}
+
+.downText{
+    max-width: 80vw;
+    transition: 2s;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+
+    h1{
+        font-family: Oxanium,Arial, Helvetica, sans-serif;
+    }
+
+    &:hover{
+        transition: 1s !important;
+        background-color: rgba($color: $blue, $alpha: 0.4);
+    }
+}
+
+.textHoverEffect {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    background-image: linear-gradient(to right, transparent 0%, transparent 50%, white 50%, white 100%);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .animateOnce {
+    animation: textColorChange 3.5s ease-in-out forwards;
+  }
+  
+  @keyframes textColorChange {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  
+
+  .whiteAfter{
+    color: white;
+  }

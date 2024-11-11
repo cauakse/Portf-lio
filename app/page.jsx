@@ -35,11 +35,11 @@ export default function Home() {
   return (
     <>
     <div className={style.supa}>
-      <Header turnBlack='true' follow='true'></Header>
+      <Header turnBlack='true' follow='true' id="init"></Header>
       <div className={style.container} 
       style={{
         filter: `brightness(${brightness})`,
-        }} id="init">
+        }} >
         <div className={style.content}>
           <div className={style.main}>
             <div className={style.devSection} data-aos="fade-up" data-aos-duration="1000">
