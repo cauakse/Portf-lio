@@ -29,31 +29,44 @@ import node from '../../../public/tecnologias/node.png'
 import express from '../../../public/tecnologias/express.png'
 import react from '../../../public/tecnologias/react.png'
 import next from '../../../public/tecnologias/next.png'
-import html from   '../../../public/tecnologias/html.png'
-import css from   '../../../public/tecnologias/css.png'
-import sass from   '../../../public/tecnologias/sass.png'
+import html from '../../../public/tecnologias/html.png'
+import css from '../../../public/tecnologias/css.png'
+import sass from '../../../public/tecnologias/sass.png'
 
 import posgree from '../../../public/tecnologias/postgree.png'
-import maria from   '../../../public/tecnologias/maria.png'
-import elastic from   '../../../public/tecnologias/elastic.png'
-import mongo from   '../../../public/tecnologias/mongo.png'
-import mysql from   '../../../public/tecnologias/mysql.png'
-import nosql from   '../../../public/tecnologias/nosql.png'
-import sql from   '../../../public/tecnologias/sql.png'
+import maria from '../../../public/tecnologias/maria.png'
+import elastic from '../../../public/tecnologias/elastic.png'
+import mongo from '../../../public/tecnologias/mongo.png'
+import mysql from '../../../public/tecnologias/mysql.png'
+import nosql from '../../../public/tecnologias/nosql.png'
+import sql from '../../../public/tecnologias/sql.png'
 
 
-import boot from   '../../../public/tecnologias/bootstrap.png'
-import git from   '../../../public/tecnologias/git.png'
-import linux from   '../../../public/tecnologias/linux.png'
-import unity from   '../../../public/tecnologias/unity.png'
+import boot from '../../../public/tecnologias/bootstrap.png'
+import git from '../../../public/tecnologias/git.png'
+import linux from '../../../public/tecnologias/linux.png'
+import unity from '../../../public/tecnologias/unity.png'
 import spring from '../../../public/tecnologias/springboot.png'
+
+import bimg from '../../../public/onebitcode/certificatesImg/bIMG.png'
+import cimg from '../../../public/onebitcode/certificatesImg/cIMG.png'
+import cmimg from '../../../public/onebitcode/certificatesImg/cmIMG.png'
+import gimg from '../../../public/onebitcode/certificatesImg/gIMG.png'
+import himg from '../../../public/onebitcode/certificatesImg/hIMG.png'
+import jimg from '../../../public/onebitcode/certificatesImg/jIMG.png'
+import nimg from '../../../public/onebitcode/certificatesImg/nIMG.png'
+import rimg from '../../../public/onebitcode/certificatesImg/rIMG.png'
+import saimg from '../../../public/onebitcode/certificatesImg/saIMG.png'
+import simg from '../../../public/onebitcode/certificatesImg/sIMG.png'
+import timg from '../../../public/onebitcode/certificatesImg/tIMG.png'
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Certificado from '@/components/SECUNDARIOS/certificado/certificado';
 
 export default function ClientOnlyComponent() {
 
-    if(typeof(window) == 'undefined')
+    if (typeof (window) == 'undefined')
         return null;
 
     Aos.init();
@@ -69,102 +82,118 @@ export default function ClientOnlyComponent() {
     }
 
     const propsF = {
-        prop1:{img: <Image src={node} alt='Framework Picture'></Image>,texto:"Node"},
-        prop2:{img: <Image src={express}alt='Framework Picture'></Image>,texto:"Express"},
-        prop3:{img: <Image src={html}alt='Framework Picture'></Image>,texto:"HTML"},
-        prop4:{img: <Image src={react}alt='Framework Picture'></Image>,texto:"React"},
-        prop5:{img: <Image src={next}alt='Framework Picture'></Image>,texto:"Next"},
-        prop6:{img: <Image src={css}alt='Framework Picture'></Image>,texto:"CSS"},
-        prop7:{img: <Image src={sass}alt='Framework Picture'></Image>,texto:"SASS"},
+        prop1: { img: <Image src={node} alt='Framework Picture'></Image>, texto: "Node" },
+        prop2: { img: <Image src={express} alt='Framework Picture'></Image>, texto: "Express" },
+        prop3: { img: <Image src={html} alt='Framework Picture'></Image>, texto: "HTML" },
+        prop4: { img: <Image src={react} alt='Framework Picture'></Image>, texto: "React" },
+        prop5: { img: <Image src={next} alt='Framework Picture'></Image>, texto: "Next" },
+        prop6: { img: <Image src={css} alt='Framework Picture'></Image>, texto: "CSS" },
+        prop7: { img: <Image src={sass} alt='Framework Picture'></Image>, texto: "SASS" },
     }
 
     const propsB = {
-        prop1:{img: <Image src={posgree} alt='Database Picture'></Image>,texto:"Postgree"},
-        prop2:{img: <Image src={maria}alt='Database Picture'></Image>,texto:"MariaDB"},
-        prop3:{img: <Image src={elastic}alt='Database Picture'></Image>,texto:"ElasticSearch"},
-        prop4:{img: <Image src={mongo}alt='Database Picture'></Image>,texto:"Mongo"},
-        prop5:{img: <Image src={mysql}alt='Database Picture'></Image>,texto:"MySQL"},
-        prop6:{img: <Image src={nosql}alt='Database Picture'></Image>,texto:"NoSQL"},
-        prop7:{img: <Image src={sql}alt='Database Picture'></Image>,texto:"SQL"},
+        prop1: { img: <Image src={posgree} alt='Database Picture'></Image>, texto: "Postgree" },
+        prop2: { img: <Image src={maria} alt='Database Picture'></Image>, texto: "MariaDB" },
+        prop3: { img: <Image src={elastic} alt='Database Picture'></Image>, texto: "ElasticSearch" },
+        prop4: { img: <Image src={mongo} alt='Database Picture'></Image>, texto: "Mongo" },
+        prop5: { img: <Image src={mysql} alt='Database Picture'></Image>, texto: "MySQL" },
+        prop6: { img: <Image src={nosql} alt='Database Picture'></Image>, texto: "NoSQL" },
+        prop7: { img: <Image src={sql} alt='Database Picture'></Image>, texto: "SQL" },
     }
 
     const propsD = {
-        prop1:{img: <Image src={boot} alt='Diversity Picture'></Image>,texto:"BootStrap"},
-        prop2:{img: <Image src={spring}alt='Diversity Picture'></Image>,texto:"SpringBoot"},
-        prop3:{img: <Image src={linux}alt='Diversity Picture'></Image>,texto:"Linux"},
-        prop4:{img: <Image src={git}alt='Diversity Picture'></Image>,texto:"Git"},
-        prop5:{img: <Image src={unity}alt='Diversity Picture'></Image>,texto:"Unity"},
+        prop1: { img: <Image src={boot} alt='Diversity Picture'></Image>, texto: "BootStrap" },
+        prop2: { img: <Image src={spring} alt='Diversity Picture'></Image>, texto: "SpringBoot" },
+        prop3: { img: <Image src={linux} alt='Diversity Picture'></Image>, texto: "Linux" },
+        prop4: { img: <Image src={git} alt='Diversity Picture'></Image>, texto: "Git" },
+        prop5: { img: <Image src={unity} alt='Diversity Picture'></Image>, texto: "Unity" },
     }
 
     return (
         <>
-        <div className={style.container}>
-            <Header turnBlack='false' follow='false'></Header>
-            <div className={style.mainContainer} id='init'>
-                <div className={style.myImage} data-aos="fade-right" data-aos-duration="1000" >
-                    <Image src={profile} alt='Profile Picture' className={style.profileImage} />
+            <div className={style.container}>
+                <Header turnBlack='false' follow='false'></Header>
+                <div className={style.mainContainer} id='init'>
+                    <div className={style.myImage} data-aos="fade-right" data-aos-duration="1000" >
+                        <Image src={profile} alt='Profile Picture' className={style.profileImage} />
+                    </div>
+                    <div className={style.aboutDiv}>
+                        <h1 className={style.aboutText} data-aos="fade-left" data-aos-duration="1000" >
+                            Hi, my name is Cauã Pereira Domingues. I am a Computer Science student and scientific researcher at Unoeste in Brazil. I live in Presidente Prudente and have experience in full-stack application development. Below, you’ll find some a bit more about me. Enjoy!
+                        </h1>
+                        <a href="/CauaPereiraLinkedin.pdf" download="CurriculoCauaPereira.pdf" className={style.downloadButton}>Click Here to Dowload my CV</a>
+
+
+                    </div>
                 </div>
-                <div className={style.aboutDiv}>
-                    <h1 className={style.aboutText}data-aos="fade-left" data-aos-duration="1000" >
-                        Hi, my name is Cauã Pereira Domingues. I am a Computer Science student and scientific researcher at Unoeste in Brazil. I live in Presidente Prudente and have experience in full-stack application development. Below, you’ll find some a bit more about me. Enjoy!
-                    </h1>
-                    <a href="/CauaPereiraLinkedin.pdf" download="CurriculoCauaPereira.pdf" className={style.downloadButton}>Click Here to Dowload my CV</a>
-                        
-                    
+                <div className={style.caroussel}>
+                    <div className={style.item} style={{ animationDelay: 1 + 's' }}>
+                        <Image alt="Caroussel img" src={image1}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 2 + 's' }}>
+                        <Image alt="Caroussel img" src={image2}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 3 + 's' }}>
+                        <Image alt="Caroussel img" src={image3}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 4 + 's' }}>
+                        <Image alt="Caroussel img" src={image4}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 5 + 's' }}>
+                        <Image alt="Caroussel img" src={image5}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 6 + 's' }}>
+                        <Image alt="Caroussel img" src={image6}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 7 + 's' }}>
+                        <Image alt="Caroussel img" src={image7}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 8 + 's' }}>
+                        <Image alt="Caroussel img" src={image8}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 9 + 's' }}>
+                        <Image alt="Caroussel img" src={image9}></Image>
+                    </div>
+                    <div className={style.item} style={{ animationDelay: 10 + 's' }}>
+                        <Image alt="Caroussel img" src={image10}></Image>
+                    </div>
                 </div>
+                <div className={style.secondDiv}>
+                    <Stack tittle="Web-Development" {...propsF}></Stack >
+                    <div className={style.double}>
+                        <Stack tittle="Languages" {...propsL}></Stack>
+                        <Stack tittle="Data-Base" {...propsB}></Stack>
+                    </div>
+                    <Stack tittle="Diversity" {...propsD}></Stack>
+                </div>
+                <div className={style.textMe} >
+                    <div className={style.meRight} data-aos="fade-right" data-aos-duration="2000">
+                        <h1>I&apos;m Cauã Pereira, a Computer Science student and virtual reality researcher at Unoeste, based in Presidente Prudente, Brazil. With a solid foundation in programming languages like C, Python, Java, and JavaScript, I specialize in full-stack development using frameworks like Node.js and React.</h1>
+                    </div>
+                    <div className={style.meLeft} data-aos="fade-left" data-aos-duration="2000">
+                        <h1>
+                            I am pursuing a Bachelor’s degree in Computer Science at Unoeste, focusing on building strong technical and analytical skills. Alongside my studies, I’ve completed 17 courses at SENAI and additional certifications with One Bit Code, covering topics like HTML, CSS, JavaScript, React, Git, and TypeScript, giving me a solid foundation in full-stack development and innovation.
+                        </h1>
+                    </div>
+                </div>
+                <div className={style.transition}>
+                    <h1>Bellow, some of my certificates</h1>
+                </div>
+                <div className={style.certificates}>
+                    <Certificado url="/onebitcode/Certificado_BOOTSTRAP.pdf" tittle="BootStrap" img={bimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_CSS.pdf" tittle="CSS" img={cimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_CSS-moderno.pdf"tittle="Mordern CSS" img={cmimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_Git-GitHub.pdf" tittle="Git Github" img={gimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_HTML5.pdf" tittle="HTML5" img={himg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_JS.pdf" tittle="JavaScript" img={jimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_NEXT.pdf" tittle="NextJS" img={nimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado-REACT.pdf" tittle="React" img={rimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_TypeScript.pdf" tittle="TypeScript" img={timg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado-Sass.pdf" tittle="SASS" img={saimg}></Certificado>
+                    <Certificado url="/onebitcode/Certificado_CSS_JS_HTML.pdf" tittle="Start Programation" img={simg}></Certificado>
+                </div>
+                <Footer link1="projects" link2="contact"></Footer>
             </div>
-            <div className={style.caroussel}>
-                <div className={style.item} style={{ animationDelay: 1 + 's' }}>
-                    <Image alt="Caroussel img" src={image1}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 2 + 's' }}>
-                    <Image alt="Caroussel img" src={image2}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 3 + 's' }}>
-                    <Image alt="Caroussel img" src={image3}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 4 + 's' }}>
-                    <Image alt="Caroussel img" src={image4}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 5 + 's' }}>
-                    <Image alt="Caroussel img" src={image5}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 6 + 's' }}>
-                    <Image alt="Caroussel img" src={image6}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 7 + 's' }}>
-                    <Image alt="Caroussel img" src={image7}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 8 + 's' }}>
-                    <Image alt="Caroussel img" src={image8}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 9 + 's' }}>
-                    <Image alt="Caroussel img" src={image9}></Image>
-                </div>
-                <div className={style.item} style={{ animationDelay: 10 + 's' }}>
-                    <Image alt="Caroussel img" src={image10}></Image>
-                </div>
-            </div>
-            <div className={style.secondDiv}>
-                <Stack tittle="Web-Development" {...propsF}></Stack >
-                <div className={style.double}>
-                    <Stack tittle="Languages" {...propsL}></Stack>
-                    <Stack tittle="Data-Base" {...propsB}></Stack>
-                </div>
-                <Stack tittle="Diversity" {...propsD}></Stack>
-            </div>
-            <div className={style.textMe} >
-                <div className={style.meRight} data-aos="fade-right" data-aos-duration="2000">
-                    <h1>I&apos;m Cauã Pereira, a Computer Science student and virtual reality researcher at Unoeste, based in Presidente Prudente, Brazil. With a solid foundation in programming languages like C, Python, Java, and JavaScript, I specialize in full-stack development using frameworks like Node.js and React.</h1>
-                </div>
-                <div className={style.meLeft} data-aos="fade-left" data-aos-duration="2000">
-                    <h1>
-                    I thrive on creating immersive, innovative digital solutions and blending functionality with minimalist, art-inspired design. My experience includes both hands-on projects and teaching, where I’ve guided students through programming logic and data structures. Passionate about exploring new tech, I’m dedicated to pushing boundaries in every project I take on.
-                    </h1>
-                </div>
-            </div>
-            <Footer link1="projects" link2="contact"></Footer>
-        </div>
         </>
     );
 }

@@ -145,7 +145,7 @@
 
 .textMe {
     min-height: 120vh;
-    background: linear-gradient(to bottom, $blue 0%, transparent 25%, rgba(14, 19, 31, 0.5) 50%, #0E131F 90%, #000 100%),
+    background: linear-gradient(to bottom, $blue 0%, transparent 25%, rgba(14, 19, 31, 0.5) 50%, $black 90%, $black 100%),
         url('../../../public/background3.jpg');
     background-size: cover;
     background-position: center;
@@ -206,3 +206,31 @@
     }
     margin-bottom: 4rem;
 }
+.transition{
+    background-color: $black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        color: white;
+        font-family: Oxanium,Arial, Helvetica, sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+}
+
+.certificates {
+    min-height: 100vh;
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem;
+    background-image: url('../../../public/purple.png');
+    background-size: 50% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    > :nth-child(even) {
+      align-self: flex-end; // Alinha os filhos pares à esquerda
+    }
+  }
