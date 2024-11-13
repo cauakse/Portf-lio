@@ -11,10 +11,6 @@ import { useState, useEffect } from 'react';
 import Project from '@/components/SECUNDARIOS/project/project';
 
 export default function Client (){
-
-    
-    if (typeof (window) == 'undefined')
-        return null;
     
     const [brightness,setBrightness] = useState(1);
     const [animation,setAnimation] = useState(true);
@@ -39,6 +35,9 @@ export default function Client (){
           window.removeEventListener('scroll', handleScroll);
         };
       }, []);
+    
+      if (typeof (window) == 'undefined')
+        return null;
     
     return (<>
      <div className={style.main} style={{
