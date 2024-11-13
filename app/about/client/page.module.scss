@@ -222,15 +222,18 @@
 .certificates {
     min-height: 100vh;
     background-color: $black;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     gap: 3rem;
     padding: 4rem;
     background-image: url('../../../public/purple.png');
     background-size: 50% 100%;
     background-position: center;
     background-repeat: no-repeat;
+
     > :nth-child(even) {
-      align-self: flex-end; // Alinha os filhos pares à esquerda
-    }
+        border-radius: 1rem;
+        border-top-right-radius: 5rem;
+        border-bottom-left-radius: 5rem; // Alinha os filhos pares à esquerda
+      }
   }

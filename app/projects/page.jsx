@@ -5,6 +5,7 @@ import Footer from '@/components/PRINCIPAIS/footer/footer.jsx';
 import { useEffect, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Project from '@/components/SECUNDARIOS/project/project';
 
 export default function Page (){
 
@@ -47,7 +48,7 @@ export default function Page (){
             </div>
         </div>
         <div className={style.main2}>
-            
+            <Project></Project>
         </div>
         <Footer link1="about" link2="contact"></Footer>
         </>
