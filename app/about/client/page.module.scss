@@ -1,26 +1,71 @@
 @import '../../styles/colors';
 
+.base {
+    box-sizing: border-box;
+}
+
+.container {
+    composes: base;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 
 .mainContainer {
+    composes: base;
     max-width: 100vw;
     min-height: 100vh;
     background-color: $black;
+    background-image: url('../../../public/background.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
 }
 
 .double {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
     min-width: 25%;
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: rgba($black, 0.8);
+    border: 1px solid rgba($blue, 0.2);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: rgba($blue, 0.4);
+    }
 }
 
 .secondDiv {
+    composes: base;
+    width: 100%;
     max-width: 100vw;
-    min-height: 100vh;
+    padding: 4rem 2rem;
+    overflow: hidden;
     background-color: $blue;
     background-repeat: no-repeat;
     background-position: center;
@@ -30,49 +75,177 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    gap: 4rem;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to bottom, 
+            transparent,
+            rgba($black, 0.9) 50%,
+            $black 100%
+        );
+        pointer-events: none;
+    }
+    padding-bottom: 10rem;
 }
 
 
 
 .profileImage {
-    border-radius: 50%;
+    border-radius: 20px;
     object-fit: cover;
     max-width: 30vw;
-    max-height: 65svh;
-    object-position: bottom;
+    max-height: 65vh;
+    object-position: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba($blue, 0.3);
+    filter: brightness(1.1) contrast(1.1);
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba($blue, 0.4);
+        border-color: rgba($blue, 0.5);
+        filter: brightness(1.2) contrast(1.15);
+    }
 }
 
 .aboutText {
     text-align: justify;
     text-indent: 2rem;
     font-family: Oxanium, Arial, Helvetica, sans-serif;
-    font-size: 700;
-    font-weight: 800;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    &::first-letter {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $blue;
+    }
 }
 
 .aboutDiv {
+    composes: base;
     display: block;
     max-width: 50vw;
+    padding: 2rem;
+    background: rgba($black, 0.8);
+    border: 1px solid rgba($blue, 0.2);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 2;
 
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: rgba($blue, 0.4);
+    }
 }
 
 .caroussel {
-    width: 90vw;
+    composes: base;
+    width: 100%;
     max-width: 100vw;
+    overflow: hidden;
+    min-height: 15vh;
     display: flex;
     align-items: center;
     position: relative;
-    transition: 0.6s;
-    background-color: $violet;
-    mask-image: linear-gradient(to right, transparent, #0E131F 15%, #0E131F 85%, transparent);
-    min-height: 10vh;
+    background: rgba($black, 0.98);
+    border-top: 1px solid rgba($blue, 0.15);
+    border-bottom: 1px solid rgba($blue, 0.15);
+    padding: 2rem 0;
 
-    &:hover {
-        .item {
-            animation-play-state: paused;
-            filter: grayscale(1);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at center,
+            rgba($blue, 0.05) 0%,
+            rgba($black, 0.98) 70%
+        );
+        pointer-events: none;
+    }
+
+    :global(.swiper) {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    :global(.swiper-wrapper) {
+        align-items: center;
+        transition-timing-function: linear;
+    }
+
+    :global(.swiper-slide) {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: auto !important;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: 1rem;
+        
+        img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            filter: grayscale(0.7) brightness(0.9);
+            transition: all 0.4s ease;
+            transform-origin: center;
         }
 
+        &:hover {
+            transform: translateY(-8px);
+
+            img {
+                filter: grayscale(0) brightness(1.2);
+                transform: scale(1.15);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, $blue, transparent);
+            }
+        }
+    }
+
+    // Efeito de brilho nas bordas
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, 
+            transparent,
+            rgba($blue, 0.2),
+            rgba($blue, 0.4),
+            rgba($blue, 0.2),
+            transparent
+        );
     }
 }
 
@@ -144,68 +317,118 @@
 }
 
 .textMe {
-    min-height: 120vh;
-    background: linear-gradient(to bottom, $blue 0%, transparent 25%, rgba(14, 19, 31, 0.5) 50%, $black 90%, $black 100%),
-        url('../../../public/background3.jpg');
+    composes: base;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba($black, 0.98) 0%,
+        rgba($black, 0.85) 40%,
+        rgba($blue, 0.15) 50%,
+        rgba($black, 0.85) 60%,
+        rgba($black, 0.98) 100%
+    ), url('../../../public/kerubins.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    gap: 5rem;
-}
-
-.meRight {
-    max-width: 35vw;
-    margin-top: 2rem;
-    padding: 2rem;
-    border-radius: 1rem;
-    background-color: rgba($color: $black, $alpha: 0.3);
-    margin-left: 1rem;
-    h1 {
-        font-size: 900;
-        font-family: Oxanium, Arial, Helvetica, sans-serif;
-        color: white;
-    }
-
-    &:hover {
-        transition: 0.2s !important;
-        background-color: rgba($color: white, $alpha: 0.3);
-        transform: scale(1.05) !important;
-
-        h1 {
-            color: black;
-        }
-    }
-    margin-bottom: 4rem;
-}
-
-
-.meLeft {
-    max-width: 30vw;
-    padding: 2rem;
-    border-radius: 1rem;
-    background-color: rgba($color: $black, $alpha: 0.3);
+    gap: 8rem;
+    padding: 6rem;
     
-    margin-right: 1rem;
-    h1 {
-        font-family: Oxanium, Arial, Helvetica, sans-serif;
-        color: white;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to top, 
+            transparent,
+            rgba($black, 0.9) 50%,
+            $black 100%
+        );
+        pointer-events: none;
     }
 
-    &:hover {
-        transition: 0.2s !important;
-        background-color: rgba($color: white, $alpha: 0.3);
-        transform: scale(1.05) !important;
+    .meRight, .meLeft {
+        max-width: 100%;
+        padding: 2rem;
+        border-radius: 25px;
+        background: rgba($black, 0.8);
+        border: 1px solid rgba($blue, 0.2);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
         h1 {
-            color: black;
+            font-family: Oxanium, Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 1.4rem;
+            line-height: 2;
+            text-align: justify;
+            position: relative;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+            &::first-letter {
+                font-size: 3rem;
+                font-weight: 700;
+                color: $blue;
+                float: left;
+                margin-right: 0.5rem;
+                line-height: 1;
+                text-shadow: 0 2px 5px rgba($blue, 0.4);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -2rem;
+                left: 0;
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(90deg, $blue, transparent);
+                border-radius: 2px;
+            }
+        }
+
+        &:hover {
+            transform: translateY(-15px);
+            border-color: rgba($blue, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+            h1 {
+                color: rgba(255, 255, 255, 0.95);
+                text-shadow: 0 2px 8px rgba($blue, 0.2);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 5%;
+                width: 90%;
+                height: 2px;
+                background: linear-gradient(90deg, 
+                    transparent,
+                    rgba($blue, 0.5),
+                    transparent
+                );
+            }
         }
     }
-    margin-bottom: 4rem;
+
+    .meLeft {
+        margin-top: 6rem;
+    }
 }
+
 .transition{
     background-color: $black;
     display: flex;
@@ -220,20 +443,389 @@
 }
 
 .certificates {
+    composes: base;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem;
+    overflow: hidden;
     min-height: 100vh;
     background-color: $black;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 3rem;
-    padding: 4rem;
-    background-image: url('../../../public/purple.png');
-    background-size: 50% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
 
-    > :nth-child(even) {
-        border-radius: 1rem;
-        border-top-right-radius: 5rem;
-        border-bottom-left-radius: 5rem; // Alinha os filhos pares à esquerda
-      }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at center,
+            rgba($blue, 0.1) 0%,
+            transparent 70%
+        );
+        pointer-events: none;
+    }
+}
+
+.divTransition {
+    composes: base;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 200px;
+    background: $black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg,
+            transparent 0%,
+            rgba($blue, 0.05) 50%,
+            transparent 100%
+        );
+        animation: shine 2s infinite;
+    }
+
+    h2 {
+        color: white;
+        font-family: Oxanium, Arial, Helvetica, sans-serif;
+        font-size: 2.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 0 2px 5px rgba($blue, 0.3);
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent,
+                $blue,
+                transparent
+            );
+        }
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+    50% {
+        transform: translateX(100%) skewX(-15deg);
+    }
+    100% {
+        transform: translateX(100%) skewX(-15deg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .mainContainer {
+        padding: 1.8rem;
+    }
+
+    .double {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .aboutDiv {
+        max-width: 45vw;
+        padding: 1.5rem;
+    }
+
+    .aboutText {
+        font-size: 1rem;
+        
+        &::first-letter {
+            font-size: 2.2rem;
+        }
+    }
+
+    .profileImage {
+        max-width: 35vw;
+    }
+
+    .caroussel {
+        min-height: 13vh;
+
+        :global(.swiper-slide) img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .secondDiv {
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .textMe {
+        gap: 6rem;
+        padding: 4rem;
+
+        .meRight, .meLeft {
+            max-width: 45vw;
+            padding: 2.5rem;
+
+            h1 {
+                font-size: 1.3rem;
+                line-height: 1.9;
+
+                &::first-letter {
+                    font-size: 2.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .mainContainer {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .double {
+        min-width: 80%;
+        padding: 1.2rem;
+    }
+
+    .aboutDiv {
+        max-width: 80%;
+        padding: 1.2rem;
+        text-align: center;
+    }
+
+    .aboutText {
+        font-size: 0.95rem;
+        text-align: center;
+        
+        &::first-letter {
+            font-size: 2rem;
+        }
+    }
+
+    .profileImage {
+        max-width: 50vw;
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        padding: 1.2rem;
+    }
+
+    .double, .aboutDiv {
+        min-width: 90%;
+        padding: 1rem;
+    }
+
+    .aboutText {
+        font-size: 0.9rem;
+        
+        &::first-letter {
+            font-size: 1.8rem;
+        }
+    }
+
+    .profileImage {
+        max-width: 60vw;
+    }
+
+    .caroussel {
+        min-height: 11vh;
+        padding: 1.5rem 0;
+
+        :global(.swiper-slide) {
+            padding: 0.8rem;
+            
+            img {
+                width: 45px;
+                height: 45px;
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+                
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .secondDiv {
+        gap: 2.5rem;
+        padding: 2.5rem;
+    }
+
+    .textMe {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 3rem;
+
+        .meRight, .meLeft {
+            max-width: 90vw;
+            margin: 0;
+            padding: 2rem;
+
+            h1 {
+                font-size: 1.2rem;
+                line-height: 1.8;
+
+                &::first-letter {
+                    font-size: 2.5rem;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+    }
+
+    .divTransition {
+        height: 150px;
+        
+        h2 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+    }
+
+    .certificates {
+        padding: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContainer {
+        padding: 1rem;
+    }
+
+    .double, .aboutDiv {
+        min-width: 95%;
+        padding: 0.8rem;
+    }
+
+    .aboutText {
+        font-size: 0.85rem;
+        
+        &::first-letter {
+            font-size: 1.6rem;
+        }
+    }
+
+    .profileImage {
+        max-width: 70vw;
+    }
+
+    .caroussel {
+        min-height: 9vh;
+        padding: 1rem 0;
+
+        :global(.swiper-slide) {
+            padding: 0.6rem;
+            
+            img {
+                width: 40px;
+                height: 40px;
+            }
+
+            &:hover {
+                transform: translateY(-3px);
+                
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .secondDiv {
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .textMe {
+        padding: 2rem;
+        gap: 3rem;
+
+        .meRight, .meLeft {
+            padding: 1.5rem;
+
+            h1 {
+                font-size: 1.1rem;
+                line-height: 1.7;
+
+                &::first-letter {
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+
+    .divTransition {
+        height: 120px;
+        
+        h2 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    .certificates {
+        padding: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+  .mainContainer {
+    gap: 1.5rem;
+    padding: 0.8rem;
   }
+
+  .aboutText {
+    font-size: 0.85rem;
+  }
+
+  .meRight, .meLeft {
+    padding: 0.8rem;
+    
+    h1 {
+      font-size: 0.85rem;
+    }
+  }
+
+  .transition h1 {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}

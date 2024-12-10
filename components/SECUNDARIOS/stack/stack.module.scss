@@ -1,87 +1,341 @@
 @import '../../../app/styles/colors';
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $black;
-    border-radius: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    background: linear-gradient(135deg, rgba($black, 0.95) 0%, rgba($blue, 0.1) 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     min-width: 25%;
-    transition: 0.4s;
-    &:hover{
-        background-color: $violet !important;
-        transform: scale(1.03) !important;
-        .tittle{
-            color: $black !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba($blue, 0.2);
+    padding: 1rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba($blue, 0.1), transparent);
+        transition: 0.5s;
+    }
+
+    &:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: rgba($blue, 0.4);
+        box-shadow: 0 15px 40px rgba($blue, 0.2);
+
+        &::before {
+            left: 100%;
+        }
+
+        .tittle {
+            color: $blue;
+            text-shadow: 0 0 10px rgba($blue, 0.5);
         }
     }
 }
 
-.tittle{
-    font-family: Oxanium,Arial, Helvetica, sans-serif;
-    padding: 1rem;
+.tittle {
+    font-family: Oxanium, Arial, Helvetica, sans-serif;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background: $blue;
+        transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+        width: 80%;
+    }
 }
 
 .imagesContainer {
     display: grid;
-    grid-template-rows: repeat(3, 1fr); /* Cria 3 colunas com tamanho igual */
-    gap: 1rem; /* Espaço entre os itens */
-    padding: 1rem; /* Espaço interno */ /* Ajusta o tamanho do container */
-    grid-template-areas: 
-        "item1 item2 item3"
-        "item4 item5 item6"
-        "item7 item8 item9";
-    padding-bottom: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
-.item1,
-.item2,
-.item3,
-.item4,
-.item5,
-.item6,
-.item7,
-.item8,
-.item9 {
+.item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 50px;
-    max-height: 50px;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.4s;
-    &:hover{
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 1) !important;
-        transform: scale(1.1) !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 1rem;
+    background: rgba($black, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transform: translateX(-100%);
+        transition: 0.3s;
+    }
+
+    &:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 8px 25px rgba($blue, 0.3);
+
+        &::before {
+            transform: translateX(100%);
+        }
+
+        img {
+            filter: brightness(1.2);
+        }
+    }
+
+    img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+        transition: all 0.3s ease;
     }
 }
 
-.item1 {
-    grid-area: item1;
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($black, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
-.item2 {
-    grid-area: item2;
+
+.modal {
+    background: linear-gradient(135deg, rgba($black, 0.95) 0%, rgba($blue, 0.1) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    border: 1px solid rgba($blue, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: modalFadeIn 0.3s ease-out;
 }
-.item3 {
-    grid-area: item3;
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: rgba($blue, 0.2);
+        transform: rotate(90deg);
+    }
 }
-.item4 {
-    grid-area: item4;
+
+.modalContent {
+    color: white;
 }
-.item5 {
-    grid-area: item5;
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($blue, 0.3);
+
+    .techIcon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba($black, 0.5);
+        border-radius: 12px;
+        padding: 0.8rem;
+        border: 1px solid rgba($blue, 0.2);
+    }
+
+    h2 {
+        font-family: Oxanium, Arial, Helvetica, sans-serif;
+        font-size: 1.8rem;
+        margin: 0;
+    }
 }
-.item6 {
-    grid-area: item6;
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .infoSection {
+        h3 {
+            color: $blue;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                padding: 0.5rem 0;
+                color: rgba(255, 255, 255, 0.9);
+                position: relative;
+                padding-left: 1.5rem;
+
+                &::before {
+                    content: '•';
+                    color: $blue;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+    }
 }
-.item7 {
-    grid-area: item7;
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.item8 {
-    grid-area: item8;
+
+@media (max-width: 1200px) {
+    .container {
+        min-width: 30%;
+    }
+
+    .tittle {
+        font-size: 1.6rem;
+    }
+
+    .item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
+        width: 55px;
+        height: 55px;
+    }
 }
-.item9 {
-    grid-area: item9;
+
+@media (max-width: 768px) {
+    .container {
+        min-width: 90%;
+        margin: 1rem;
+    }
+
+    .tittle {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    .imagesContainer {
+        gap: 1.2rem;
+        padding: 1.5rem;
+    }
+
+    .item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        min-width: 95%;
+        padding: 0.8rem;
+    }
+
+    .tittle {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .imagesContainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
+        width: 45px;
+        height: 45px;
+    }
+
+    .modal {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .modalHeader {
+        gap: 1rem;
+        
+        .techIcon {
+            width: 50px;
+            height: 50px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+
+    .modalBody {
+        gap: 1rem;
+
+        .infoSection {
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    }
 }

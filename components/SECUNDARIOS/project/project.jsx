@@ -3,50 +3,63 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-export default function Project(props) {
+export default function Project({ title, description, image, githubLink, deployLink, techs = [], status = 'Completed' }) {
 
     Aos.init();
     return (
-        <>
-            <div className={style.supa} data-aos="flip-right" data-aos-duration="750">
-                <h1>{props.tittle}</h1>
-                <Image src={props.image} alt='Project Image' className={style.Image}></Image>
-                <div className={style.text}>
-                    <h2>Theme : {props.tema}</h2>
-                </div>
-                <div className={style.buttons}>
-                    <Link href={props.linkV} target='_blank' className={style.icon}>
-                        <svg
+        <div className={style.supa}>
+            <h1>{title}</h1>
+            <span className={style.status}>{status}</span>
+            
+            <Image src={image} alt={title} className={style.Image} />
+            
+            <div className={style.text}>
+                <h2>{description}</h2>
+            </div>
+
+            <div className={style.techStack}>
+                {techs.map((tech, index) => (
+                    <span key={index} className={style.tech}>{tech}</span>
+                ))}
+            </div>
+
+            <div className={style.buttons}>
+                <div className={style.buttonGroup}>
+                    <Link href={githubLink? githubLink : 'https://github.com/caua-kse'} target="_blank" className={style.icon}>
+                        <svg 
+                            width="45" 
+                            height="45" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
                             xmlns="http://www.w3.org/2000/svg"
-                            width="80"
-                            height="80"
-                            viewBox="0 0 300 150"
-                            style={{ fill: '#FFFFFF' }}
                         >
-                            <g
-                                fill="#ffffff"
-                                fillRule="nonzero"
-                                stroke="none"
-                                strokeWidth="1"
-                                strokeLinecap="butt"
-                                strokeLinejoin="miter"
-                                strokeMiterlimit="10"
-                                fontFamily="none"
-                                fontWeight="none"
-                                fontSize="none"
-                                textAnchor="none"
-                                style={{ mixBlendMode: 'normal' }}
-                            >
-                                <g transform="scale(8.53333,8.53333)">
-                                    <path d="M15,3c-6.627,0 -12,5.373 -12,12c0,5.623 3.872,10.328 9.092,11.63c-0.056,-0.162 -0.092,-0.35 -0.092,-0.583v-2.051c-0.487,0 -1.303,0 -1.508,0c-0.821,0 -1.551,-0.353 -1.905,-1.009c-0.393,-0.729 -0.461,-1.844 -1.435,-2.526c-0.289,-0.227 -0.069,-0.486 0.264,-0.451c0.615,0.174 1.125,0.596 1.605,1.222c0.478,0.627 0.703,0.769 1.596,0.769c0.433,0 1.081,-0.025 1.691,-0.121c0.328,-0.833 0.895,-1.6 1.588,-1.962c-3.996,-0.411 -5.903,-2.399 -5.903,-5.098c0,-1.162 0.495,-2.286 1.336,-3.233c-0.276,-0.94 -0.623,-2.857 0.106,-3.587c1.798,0 2.885,1.166 3.146,1.481c0.896,-0.307 1.88,-0.481 2.914,-0.481c1.036,0 2.024,0.174 2.922,0.483c0.258,-0.313 1.346,-1.483 3.148,-1.483c0.732,0.731 0.381,2.656 0.102,3.594c0.836,0.945 1.328,2.066 1.328,3.226c0,2.697 -1.904,4.684 -5.894,5.097c1.098,0.573 1.899,2.183 1.899,3.396v2.734c0,0.104 -0.023,0.179 -0.035,0.268c4.676,-1.639 8.035,-6.079 8.035,-11.315c0,-6.627 -5.373,-12 -12,-12z" />
-                                </g>
-                            </g>
-                        </svg></Link>
-                    <Link href={props.linkG}  target='_blank' className={style.icon2}>
-                    <svg data-testid="geist-icon" height="60" stroke-linejoin="round" viewBox="0 0 16 16" width="60" style={{color: 'black'}}><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1L0 15H16L8 1ZM8 4.02335L2.58477 13.5H13.4152L8 4.02335Z" fill="currentColor"></path></svg>
+                            <path 
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                fill="#FFFFFF"
+                            />
+                        </svg>
+                        <span className={style.buttonLabel}>GitHub</span>
+                    </Link>
+                </div>
+
+                <div className={style.buttonGroup}>
+                    <Link href={deployLink? deployLink : 'https://caua-kse.github.io/'} target="_blank" className={style.icon2}>
+                        <svg 
+                            width="40" 
+                            height="40" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path 
+                                d="M12 1.5l-9 16h18l-9-16zm0 3.82l5.526 9.68H6.474L12 5.32z" 
+                                fill="#FFFFFF"
+                            />
+                        </svg>
+                        <span className={style.buttonLabel}>Deploy</span>
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

@@ -7,7 +7,7 @@ export default function Footer(props) {
             <div className={style.container}>
                 <div className={style.iconsSection}>
                     <ul>
-                        <li>
+                        <li className={style.listItem}>
                             <Link href="https://www.instagram.com/caua_kse/" target="_blank" className={style.LinkI}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ export default function Footer(props) {
                             </Link>
                             
                         </li>
-                        <li>
+                        <li className={style.listItem}>
                             <Link href="https://www.linkedin.com/in/cau%C3%A3-pereira-domingues-9872a9305/" target='_blank' className={style.LinkI}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ export default function Footer(props) {
 
                             </Link>
                         </li>
-                        <li>
+                        <li className={style.listItem}>
                             <Link href="https://github.com/cauakse" target='_blank' className={style.LinkI} >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -104,14 +104,14 @@ export default function Footer(props) {
                         </li>
                     </ul>
                 </div> 
-                <div className={style.rights}>
-                    <h1>Designed by caua 2024</h1>
-                    <h1>All rights reserved &copy;</h1>
+                <div className={style.footerText}>
+                    <h1>Desenvolvido por Cauã Pereira</h1>
+                    <h2>Todos os direitos reservados &copy;</h2>
                 </div>
                 <div className={style.home}>
-                    <Link href="#init"className={style.aboutLink} style={{textTransform:'uppercase'}}>Home</Link>
-                    <Link href={"/"+ props.link1} className={style.aboutLink} style={{textTransform:'uppercase'}}>{props.link1}</Link>
-                    <Link href={"/" + props.link2} className={style.aboutLink} style={{textTransform:'uppercase'}}>{props.link2}</Link>
+                    <Link href="#init">Início</Link>
+                    <Link href={"/"+ props.link1}>{props.link1 === 'about' ? 'Sobre' : 'Projetos'}</Link>
+                    <Link href={"/" + props.link2}>{props.link2 === 'contact' ? 'Contato' : 'Projetos'}</Link>
                 </div>
             </div>
         </footer>

@@ -44,13 +44,14 @@ export default function Home() {
           <div className={style.main}>
             <div className={style.devSection} data-aos="fade-up" data-aos-duration="1000">
               <h1 className={style.devText}>
-                DEVELOPER &<br />
-                SCIENTIFIC RESEARCHER
+                DESENVOLVEDOR &<br />
+                PESQUISADOR CIENTÍFICO
               </h1>
             </div>
             <div className={style.aboutSection} data-aos='fade-left' data-aos-duration="1000">
               <h1 className={style.aboutText}>
-                I am a student and scientific researcher in the field of virtual reality at Unoeste. Passionate about exploring, learning, and creating new technologies, I strive to bring innovative ideas to life.</h1>
+                Sou estudante e pesquisador científico na área de realidade virtual na Unoeste. Apaixonado por explorar, aprender e criar novas tecnologias, me esforço para dar vida a ideias inovadoras.
+              </h1>
             </div>
           </div>
           <div className={style.arrow}><Image className={style.arrowImg} src={arrow} alt="Arrow"></Image></div>
@@ -58,17 +59,51 @@ export default function Home() {
       </div>
 
       <div className={style.secondSection}>
-          <div className={style.meDiv} data-aos="fade-left" data-aos-duration="700">
-            <h1 className={style.meTittle}>
-              Hello. I am Cauã,
-            </h1>
-            <h1 className={style.meText}>
-            I use my passion and skills to develop innovative digital products and immersive experiences. My expertise spans from design and implementation to effective project management, supporting both national and international clients. As a researcher and creator, I collaborate with companies, startups, and educational institutions to bring cutting-edge technology solutions to life. With a focus on virtual reality and minimalist design, I aim to merge functionality with artistic inspiration, always pushing the boundaries of digital experiences.
-            </h1>
+        <div className={style.contentContainer}>
+          <div className={style.textSide} data-aos="fade-right" data-aos-duration="1000">
+            <div className={style.textHeader}>
+              <h1 className={style.meTittle}>Olá. Eu sou Cauã,</h1>
+              <div className={style.accentBar}></div>
+            </div>
+            
+            <div className={style.textContent}>
+              <p className={style.meText}>
+                Uso minha paixão e habilidades para desenvolver produtos digitais inovadores e experiências imersivas. Minha expertise abrange desde design e implementação até gerenciamento efetivo de projetos, atendendo clientes nacionais e internacionais. Como pesquisador e criador, colaboro com empresas, startups e instituições educacionais para dar vida a soluções tecnológicas de ponta. Com foco em realidade virtual e design minimalista, busco unir funcionalidade com inspiração artística, sempre expandindo os limites das experiências digitais.
+              </p>
+            </div>
+
+            <div className={style.techBadges}>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>Node.js</span>
+              <span>TypeScript</span>
+            </div>
           </div>
-          <div className={style.secondImage} >
-            <Image src={profile} className={style.imageS} alt="Profile Picture"></Image>
+
+          <div className={style.imageSide} data-aos="fade-left" data-aos-duration="1000">
+            <div className={style.imageFrame}>
+              <Image src={profile} className={style.imageS} alt="Foto de Perfil" />
+              <div className={style.glowEffect}></div>
+              <div className={style.cornerAccents}>
+                <div className={style.corner}></div>
+                <div className={style.corner}></div>
+                <div className={style.corner}></div>
+                <div className={style.corner}></div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className={style.decorativeElements}>
+          <div className={style.orbTop}></div>
+          <div className={style.orbBottom}></div>
+          <div className={style.grid}></div>
+          <div className={style.floatingShapes}>
+            <div className={style.shape}></div>
+            <div className={style.shape}></div>
+            <div className={style.shape}></div>
+          </div>
+        </div>
       </div>
       <Footer link1="about" link2="contact"></Footer>
     </div>

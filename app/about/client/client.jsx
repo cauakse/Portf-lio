@@ -15,6 +15,10 @@ import image9 from "../../../public/caroussel/item1-9.png"
 import image10 from "../../../public/caroussel/item1-10.png"
 import Stack from '../../../components/SECUNDARIOS/stack/stack.jsx';
 import dynamic from 'next/dynamic';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 
 import js from '../../../public/tecnologias/javascript.png'
 import c from '../../../public/tecnologias/c.png'
@@ -72,40 +76,263 @@ export default function ClientOnlyComponent() {
     Aos.init();
 
     const propsL = {
-        prop1: { img: <Image src={js} alt='Language Picture'></Image>, texto: "C" },
-        prop2: { img: <Image src={cpp} alt='Language Picture'></Image>, texto: "C++" },
-        prop3: { img: <Image src={cs} alt='Language Picture'></Image>, texto: "C#" },
-        prop4: { img: <Image src={ts} alt='Language Picture'></Image>, texto: "Java" },
-        prop5: { img: <Image src={java} alt='Language Picture'></Image>, texto: "JavaScript" },
-        prop6: { img: <Image src={python} alt='Language Picture'></Image>, texto: "TypeScript" },
-        prop7: { img: <Image src={c} alt='Language Picture'></Image>, texto: "C" },
+        prop1: { img: <Image src={js} alt='Language Picture'></Image>,
+        name: "JavaScript",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "JavaScript é uma linguagem de programação interpretada de alto nível, usada principalmente para criar interatividade em páginas web.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ]  },
+        prop2: { img: <Image src={cpp} alt='Language Picture'></Image>,
+        name: "C++",
+        experience: "3 anos",
+        level: "Avançado",
+        description: "C++ é uma linguagem de programação compilada multi-paradigma e de uso geral. C++ inclui a programação de procedimento, programação orientada a objetos e, em menor grau, programação genérica.",
+        projects: [
+            "Interpretador Python",
+            "Codificador e Decodificador de mensagens HuFFman",
+            "Sistema de gerenciamento de estoque",
+            "Sistema de gerenciamento de biblioteca",
+            "Kdtree",
+            "Listas Generalizadas"
+        ] },
+        prop3: { img: <Image src={cs} alt='Language Picture'></Image>,
+        name: "C#",
+        experience: "6 meses",
+        level: "Intermediário",
+        description: "C# é uma linguagem de programação orientada a objetos desenvolvida pela Microsoft como parte da plataforma .NET.",
+        projects: [
+            "Game de sobrevivência",
+            "Iniciação Científica Glossofobia"
+        ] },
+        prop4: { img: <Image src={ts} alt='Language Picture'></Image>,
+        name: "TypeScript",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "TypeScript é uma linguagem de programação tipada estaticamente que é um superconjunto de JavaScript, adicionando tipagem estática e recursos de linguagem orientados a objetos.",
+        projects: [
+            "Portfolio pessoal",
+            "Sistema de gestão",
+            "E-commerce"
+        ] },
+        prop5: { img: <Image src={java} alt='Language Picture'></Image>,
+        name: "Java",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "Java é uma linguagem de programação orientada a objetos e altamente utilizada para desenvolvimento de aplicações robustas e escaláveis.",
+        projects: [
+            "Sistema comercial",
+            "Alteração de imagens",
+            "Sistema de gerenciamento de estoque"
+        ] },
+        prop6: { img: <Image src={python} alt='Language Picture'></Image>,
+        name: "Python",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "Python é uma linguagem de programação interpretada de alto nível, usada principalmente para criar scripts e automatizar tarefas.",
+        projects: [
+            "Pacman",
+            "Jogo da velha",
+            "Jogo da forca",
+            "Data analysis"
+        ] },
+        prop7: { img: <Image src={c} alt='Language Picture'></Image>,
+        name: "C",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "C é uma linguagem de programação compilada de uso geral, estruturada, imperativa, procedural, padronizada pela ISO e pelo IEEE.",
+        projects: [
+            "Interpretador Python",
+            "Codificador e Decodificador de mensagens HuFFman",
+            "Sistema de gerenciamento de estoque",
+            "Sistema de gerenciamento de biblioteca",
+            "Kdtree",
+            "Listas Generalizadas"
+        ] }
     }
 
     const propsF = {
-        prop1: { img: <Image src={node} alt='Framework Picture'></Image>, texto: "Node" },
-        prop2: { img: <Image src={express} alt='Framework Picture'></Image>, texto: "Express" },
-        prop3: { img: <Image src={html} alt='Framework Picture'></Image>, texto: "HTML" },
-        prop4: { img: <Image src={react} alt='Framework Picture'></Image>, texto: "React" },
-        prop5: { img: <Image src={next} alt='Framework Picture'></Image>, texto: "Next" },
-        prop6: { img: <Image src={css} alt='Framework Picture'></Image>, texto: "CSS" },
-        prop7: { img: <Image src={sass} alt='Framework Picture'></Image>, texto: "SASS" },
+        prop1: { img: <Image src={node} alt='Framework Picture'></Image>,
+        name: "Node",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "Node.js é uma plataforma de desenvolvimento de aplicações web server-side baseada em JavaScript, que permite a execução de código JavaScript fora de um navegador web.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ] },
+        prop2: { img: <Image src={express} alt='Framework Picture'></Image>,
+        name: "Express",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "Express é um framework web para Node.js que fornece um conjunto de ferramentas para construir APIs web e aplicativos web robustos e escaláveis.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ]},
+        prop3: { img: <Image src={html} alt='Framework Picture'></Image>,
+        name: "HTML",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "HTML é uma linguagem de marcação utilizada para estruturar páginas web.",
+        projects: [
+            "Portfolio pessoal",
+          "Landing Page",
+            "API",
+            "Calculadora"
+        ]},
+        prop4: { img: <Image src={react} alt='Framework Picture'></Image>,
+        name: "React",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "React é uma biblioteca JavaScript para construção de interfaces de usuário com foco em componentes reutilizáveis e estado gerenciável.",
+        projects: [
+            "Portfolio pessoal",
+            "Sistema de gestão",
+            "E-commerce",
+            "Landing Page",
+            "Calculadora",
+            "API"
+        ]},
+        prop5: { img: <Image src={next} alt='Framework Picture'></Image>,
+        name: "Next",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "Next.js é um framework React para construção de aplicações web modernas e escaláveis.",
+        projects: [
+            "Portfolio pessoal",
+            "Sistema de gestão",
+            "E-commerce"
+        ]},
+        prop6: { img: <Image src={css} alt='Framework Picture'></Image>,
+        name: "CSS",
+        experience: "2 anos",
+        level: "Avançado",
+        description: "CSS é uma linguagem de estilo utilizada para definir a apresentação de documentos HTML.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ]},
+        prop7: { img: <Image src={sass} alt='Framework Picture'></Image>,
+        name: "SASS",
+        experience: "1 anos",
+        level: "Avançado",
+        description: "SASS é uma extensão de CSS que permite a criação de estilos mais complexos e organizados.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ]},
     }
 
     const propsB = {
-        prop1: { img: <Image src={posgree} alt='Database Picture'></Image>, texto: "Postgree" },
-        prop2: { img: <Image src={maria} alt='Database Picture'></Image>, texto: "MariaDB" },
-        prop3: { img: <Image src={elastic} alt='Database Picture'></Image>, texto: "ElasticSearch" },
-        prop4: { img: <Image src={mongo} alt='Database Picture'></Image>, texto: "Mongo" },
-        prop5: { img: <Image src={mysql} alt='Database Picture'></Image>, texto: "MySQL" },
-        prop6: { img: <Image src={nosql} alt='Database Picture'></Image>, texto: "NoSQL" },
-        prop7: { img: <Image src={sql} alt='Database Picture'></Image>, texto: "SQL" },
+        prop1: { img: <Image src={posgree} alt='Database Picture'></Image>,
+        name: "Postgree",
+        experience: "1 anos",
+        level: "Avançado",
+        description: "Postgree é um sistema de gerenciamento de banco de dados relacional open-source, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial",
+            "Sistema de gerenciamento de estoque"
+        ] },
+        prop2: { img: <Image src={maria} alt='Database Picture'></Image>,
+        name: "MariaDB",
+        experience: "6 meses",
+        level: "Intermediário",
+        description: "MariaDB é um sistema de gerenciamento de banco de dados relacional open-source, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial"
+        ] },
+        prop3: { img: <Image src={elastic} alt='Database Picture'></Image>,
+        name: "ElasticSearch",
+        experience: "2 meses",
+        level: "Iniciante",
+        description: "ElasticSearch é um sistema de gerenciamento de banco de dados distribuído e escalável, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial"
+        ] },
+        prop4: { img: <Image src={mongo} alt='Database Picture'></Image>,
+        name: "MongoDB",
+        experience: "2 meses",
+        level: "Iniciante",
+        description: "MongoDB é um sistema de gerenciamento de banco de dados NoSQL, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+        ] },
+        prop5: { img: <Image src={mysql} alt='Database Picture'></Image>,
+        name: "MySQL",
+        experience: "1 ano",
+        level: "Avançado",
+        description: "MySQL é um sistema de gerenciamento de banco de dados relacional open-source, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial",
+            "Sistema de gerenciamento de estoque"
+        ] },
+        prop6: { img: <Image src={nosql} alt='Database Picture'></Image>,
+        name: "NoSQL",
+        experience: "2 meses",
+        level: "Iniciante",
+        description: "NoSQL é um sistema de gerenciamento de banco de dados NoSQL, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial"
+        ] },
+        prop7: { img: <Image src={sql} alt='Database Picture'></Image>,
+        name: "SQL",
+        experience: "1 ano",
+        level: "Avançado",
+        description: "SQL é um sistema de gerenciamento de banco de dados relacional open-source, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial",
+            "Sistema de gerenciamento de estoque"
+        ] },
     }
 
     const propsD = {
-        prop1: { img: <Image src={boot} alt='Diversity Picture'></Image>, texto: "BootStrap" },
-        prop2: { img: <Image src={spring} alt='Diversity Picture'></Image>, texto: "SpringBoot" },
-        prop3: { img: <Image src={linux} alt='Diversity Picture'></Image>, texto: "Linux" },
-        prop4: { img: <Image src={git} alt='Diversity Picture'></Image>, texto: "Git" },
+        prop1: { img: <Image src={boot} alt='Diversity Picture'></Image>,
+        name: "BootStrap",
+        experience: "1 ano",
+        level: "Avançado",
+        description: "BootStrap é uma biblioteca CSS para construir interfaces de usuário responsivas e modernas.",
+        projects: [
+            "Portfolio pessoal",
+            "Landing Page",
+            "API",
+            "Calculadora"
+        ] },
+        prop2: { img: <Image src={spring} alt='Diversity Picture'></Image>,
+        name: "SpringBoot",
+        experience: "2 meses",
+        level: "Iniciante",
+        description: "SpringBoot é um framework Java para construir aplicações web robustas e escaláveis.",
+        projects: [
+            "Sistema comercial"
+        ] },
+        prop3: { img: <Image src={linux} alt='Diversity Picture'></Image>,
+        name: "Linux",
+        experience: "1 ano",
+        level: "Avançado",
+        description: "Linux é um sistema operacional open-source, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial"
+        ] },
+        prop4: { img: <Image src={git} alt='Diversity Picture'></Image>,
+        name: "Git",
+        experience: "1 ano",
+        level: "Avançado",
+        description: "Git é um sistema de controle de versão distribuído, que oferece suporte a uma ampla variedade de recursos avançados.",
+        projects: [
+            "Sistema comercial"
+        ] },
         prop5: { img: <Image src={unity} alt='Diversity Picture'></Image>, texto: "Unity" },
     }
 
@@ -119,65 +346,87 @@ export default function ClientOnlyComponent() {
                     </div>
                     <div className={style.aboutDiv}>
                         <h1 className={style.aboutText} data-aos="fade-left" data-aos-duration="1000" >
-                            Hi, my name is Cauã Pereira Domingues. I am a Computer Science student and scientific researcher at Unoeste in Brazil. I live in Presidente Prudente and have experience in full-stack application development. Below, you’ll find some a bit more about me. Enjoy!
+                            Olá, meu nome é Cauã Pereira Domingues. Sou estudante de Ciência da Computação e pesquisador científico na Unoeste no Brasil. Moro em Presidente Prudente e tenho experiência em desenvolvimento full-stack de aplicações. Abaixo, você encontrará um pouco mais sobre mim. Aproveite!
                         </h1>
-                        <a href="/CauaPereiraLinkedin.pdf" download="CurriculoCauaPereira.pdf" className={style.downloadButton}>Click Here to Dowload my CV</a>
+                        <a href="/CauaPereiraLinkedin.pdf" download="CurriculoCauaPereira.pdf" className={style.downloadButton}>Clique Aqui para Baixar meu CV</a>
 
 
                     </div>
                 </div>
-                <div className={style.caroussel}>
-                    <div className={style.item} style={{ animationDelay: 1 + 's' }}>
-                        <Image alt="Caroussel img" src={image1}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 2 + 's' }}>
-                        <Image alt="Caroussel img" src={image2}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 3 + 's' }}>
-                        <Image alt="Caroussel img" src={image3}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 4 + 's' }}>
-                        <Image alt="Caroussel img" src={image4}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 5 + 's' }}>
-                        <Image alt="Caroussel img" src={image5}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 6 + 's' }}>
-                        <Image alt="Caroussel img" src={image6}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 7 + 's' }}>
-                        <Image alt="Caroussel img" src={image7}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 8 + 's' }}>
-                        <Image alt="Caroussel img" src={image8}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 9 + 's' }}>
-                        <Image alt="Caroussel img" src={image9}></Image>
-                    </div>
-                    <div className={style.item} style={{ animationDelay: 10 + 's' }}>
-                        <Image alt="Caroussel img" src={image10}></Image>
-                    </div>
-                </div>
+                <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={30}
+                    slidesPerView={5}
+                    loop={true}
+                    speed={3000}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false,
+                    }}
+                    className={style.caroussel}
+                >
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image1} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image2} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image3} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image4} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image5} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image6} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image7} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image8} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image9} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image alt="Caroussel img" src={image10} />
+                    </SwiperSlide>
+                </Swiper>
                 <div className={style.secondDiv}>
-                    <Stack tittle="Web-Development" {...propsF}></Stack >
-                    <div className={style.double}>
-                        <Stack tittle="Languages" {...propsL}></Stack>
-                        <Stack tittle="Data-Base" {...propsB}></Stack>
-                    </div>
-                    <Stack tittle="Diversity" {...propsD}></Stack>
+                    <Stack tittle="Desenvolvimento Web" {...propsF}></Stack>
+                    <Stack tittle="Linguagens" {...propsL}></Stack>
+                    <Stack tittle="Banco de Dados" {...propsB}></Stack>
+                    <Stack tittle="Diversos" {...propsD}></Stack>
                 </div>
-                <div className={style.textMe} >
+
+                <div className={style.divTransition}>
+                    <h2>Minha Jornada</h2>
+                </div>
+
+                <div className={style.textMe}>
                     <div className={style.meRight} data-aos="fade-right" data-aos-duration="2000">
-                        <h1>I&apos;m Cauã Pereira, a Computer Science student and virtual reality researcher at Unoeste, based in Presidente Prudente, Brazil. With a solid foundation in programming languages like C, Python, Java, and JavaScript, I specialize in full-stack development using frameworks like Node.js and React.</h1>
+                        <h1 className={style.meTittle}>
+                            Olá. Eu sou Cauã,
+                        </h1>
+                        <h1 className={style.meText}>
+                            Uso minha paixão e habilidades para desenvolver produtos digitais inovadores e experiências imersivas. Minha expertise abrange desde design e implementação até gerenciamento efetivo de projetos, atendendo clientes nacionais e internacionais. Como pesquisador e criador, colaboro com empresas, startups e instituições educacionais para dar vida a soluções tecnológicas de ponta. Com foco em realidade virtual e design minimalista, busco unir funcionalidade com inspiração artística, sempre expandindo os limites das experiências digitais.
+                        </h1>
                     </div>
                     <div className={style.meLeft} data-aos="fade-left" data-aos-duration="2000">
                         <h1>
-                            I am pursuing a Bachelor’s degree in Computer Science at Unoeste, focusing on building strong technical and analytical skills. Alongside my studies, I’ve completed 17 courses at SENAI and additional certifications with One Bit Code, covering topics like HTML, CSS, JavaScript, React, Git, and TypeScript, giving me a solid foundation in full-stack development and innovation.
+                            Sou Cauã Pereira, estudante de Ciência da Computação e pesquisador de realidade virtual na Unoeste, em Presidente Prudente, Brasil. Com uma base sólida em linguagens de programação como C, Python, Java e JavaScript, me especializo em desenvolvimento full-stack usando frameworks como Node.js e React.
+                        </h1>
+                        <h1>
+                            Estou cursando Bacharelado em Ciência da Computação na Unoeste, focando em construir fortes habilidades técnicas e analíticas. Junto aos meus estudos, completei 17 cursos no SENAI e certificações adicionais com a One Bit Code, cobrindo tópicos como HTML, CSS, JavaScript, React, Git e TypeScript, me dando uma base sólida em desenvolvimento full-stack e inovação.
                         </h1>
                     </div>
                 </div>
-                <div className={style.transition}>
-                    <h1>Bellow, some of my certificates</h1>
+                <div className={style.divTransition}>
+                    <h2>Abaixo, alguns dos meus certificados</h2>
                 </div>
                 <div className={style.certificates}>
                     <Certificado url="/onebitcode/Certificado_BOOTSTRAP.pdf" tittle="BootStrap" img={bimg}></Certificado>

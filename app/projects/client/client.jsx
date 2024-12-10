@@ -45,25 +45,65 @@ export default function Client (){
         }}> 
             <div className={style.godText} data-aos="fade-down" data-aos-duration="1200">
                 <h1 className={`${style.textHoverEffect} ${animation ? style.animateOnce : style.whiteAfter}`}>
-                &quot;God the Father Creator, sit and witness the strength of Your creation.&quot;</h1>
+                &quot;Deus pai criador, sente-se e testemunhe a força de tua criação.&quot;</h1>
             </div>
             <div className={style.downText} data-aos="fade-up" data-aos-duration="1200">
                 <h1 className={`${style.textHoverEffect} ${animation ? style.animateOnce : style.whiteAfter}`}>
-                    Below, behold a selection of my creations.</h1>
+                    Abaixo, veja algumas das minhas criações.</h1>
             </div>
         </div>
        
        <div className={style.transition}>
-       <h1 className={style.h1Name} data-aos="fade-down" data-aos-duration="1000">Some of my Projects</h1>
+       <h1 className={style.h1Name} data-aos="fade-down" data-aos-duration="1000">Alguns dos meus projetos</h1>
        </div>
 
         <div className={style.main2}>
           <div className={style.projectsContainer}>
-              <Project tittle="Agency Page" image={landing} tema="Landing Page" linkG="https://landing-page-five-indol.vercel.app/" linkV="https://github.com/cauakse/landing-page"></Project>
-              <Project tittle="Spacex Copy" image={spacex} tema="Single Page Aplication" linkG="https://space-x-landing-page-delta.vercel.app/" linkV="https://github.com/cauakse/SpaceX-LandingPage"></Project>
-              <Project tittle="Unity Game" image={unity}  tema="Game Design" linkG="https://www.linkedin.com/feed/update/urn:li:activity:7255672853772046336/" linkV="https://www.linkedin.com/feed/update/urn:li:activity:7255672853772046336/"></Project>
-              <Project tittle="Brasilian CEP" image={cep}  tema="API Rest" linkG="https://busca-cep-woad.vercel.app/" linkV="https://github.com/cauakse/BuscaCep"></Project>
-              <Project tittle="Comercial System" image={boteco}  tema="Generic Boteco System" linkG="" linkV=""></Project>
+              <Project 
+                  title="Agency Page"
+                  description="Uma landing page moderna e responsiva para agências, desenvolvida com Next.js e design clean."
+                  image={landing} 
+                  githubLink="https://github.com/cauakse/landing-page"
+                  deployLink="https://landing-page-five-indol.vercel.app/"
+                  techs={['HTML', 'CSS', 'JavaScript', 'React','Next.js']}
+                  status="Concluído"
+              />
+              <Project 
+                  title="SpaceX Copy" 
+                  description="Clone da página da SpaceX, recriando a interface moderna e minimalista com animações suaves."
+                  image={spacex} 
+                  githubLink="https://github.com/cauakse/SpaceX-LandingPage"
+                  deployLink="https://space-x-landing-page-delta.vercel.app/"
+                  techs={['HTML', 'CSS', 'JavaScript', 'React','Next.js']}
+                  status="Concluído"
+              />
+              <Project 
+                  title="Unity Game" 
+                  description="Jogo desenvolvido na Unity, explorando mecânicas de gameplay e design de níveis."
+                  image={unity}  
+                  githubLink="https://www.linkedin.com/feed/update/urn:li:activity:7255672853772046336/"
+                  deployLink="https://www.linkedin.com/feed/update/urn:li:activity:7255672853772046336/"
+                  techs={['Unity', 'C#', 'Game Design']}
+                  status="Em Desenvolvimento"
+              />
+              <Project 
+                  title="Busca CEP" 
+                  description="Aplicação para consulta de CEP brasileiro utilizando API REST, com interface intuitiva."
+                  image={cep}  
+                  githubLink="https://github.com/cauakse/BuscaCep"
+                  deployLink="https://busca-cep-woad.vercel.app/"
+                  techs={['HTML', 'CSS', 'JavaScript', 'React','Next.js']}
+                  status="Concluído"
+              />
+              <Project 
+                  title="Sistema Comercial" 
+                  description="Sistema de gestão comercial desenvolvido em Java com interface JavaFX e banco de dados PostgreSQL."
+                  image={boteco}  
+                  githubLink=""
+                  deployLink=""
+                  techs={['Java', 'JavaFX', 'PostgreSQL', 'JDBC']}
+                  status="Em Desenvolvimento"
+              />
           </div>
             
         </div>
