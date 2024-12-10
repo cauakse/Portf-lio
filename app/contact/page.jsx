@@ -34,6 +34,7 @@ export default function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
+        setSubmitStatus(null)
         
         try {
             const response = await fetch('/api/contact', {
@@ -44,7 +45,9 @@ export default function Contact() {
                 body: JSON.stringify(formData),
             })
 
-            if (response.ok) {
+            const data = await response.json()
+
+            if (response.ok && data.success) {
                 setSubmitStatus('success')
                 setFormData({
                     name: '',
@@ -55,13 +58,15 @@ export default function Contact() {
                     description: ''
                 })
             } else {
+                console.error('Erro na resposta:', data)
                 setSubmitStatus('error')
             }
         } catch (error) {
+            console.error('Erro ao enviar:', error)
             setSubmitStatus('error')
+        } finally {
+            setIsSubmitting(false)
         }
-        
-        setIsSubmitting(false)
     }
 
     const handleChange = (e) => {
